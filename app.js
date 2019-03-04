@@ -1,4 +1,4 @@
-var list = ['tea', 'milk'];
+var groceryItems = ['Tea', 'Milk'];
 
 var Cucumber = () => (
     <li>Cucumber</li>
@@ -8,14 +8,18 @@ var Kale = () => (
     <li>Kale</li>
 );
 
+var GroceryListItem = (props) => (
+    <li>{props.groceryItem}</li>
+)
+
 var GroceryList = (props) => (
     <ul>
-        <li> {props.list[0]}</li>
-        <li> {props.list[1]} </li>
+        <GroceryListItem groceryItem = {props.groceryItems[0]} />
+        <GroceryListItem groceryItem = {props.groceryItems[1]} />
         <Cucumber />
         <Kale />
     </ul>
 );
 
-ReactDOM.render(<GroceryList list = {list}/>, document.getElementById('app'));
+ReactDOM.render(<GroceryList groceryItems = {groceryItems}/>, document.getElementById('app'));
 
