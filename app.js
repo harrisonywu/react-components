@@ -9,9 +9,14 @@ var Kale = () => (
 );
 
 class GroceryListItem extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
+        this.state = {
+            done: false
+        }
     }
+
+    
     render() {
         return (
         <li>{this.props.groceryItem}</li>
@@ -22,8 +27,7 @@ class GroceryListItem extends React.Component {
 
 var GroceryList = (props) => (
     <ul>
-        <GroceryListItem groceryItem = {props.groceryItems[0]} />
-        <GroceryListItem groceryItem = {props.groceryItems[1]} />
+        {props.groceryItems.map(item => <GroceryListItem groceryItem = {item} />)}
         <Cucumber />
         <Kale />
     </ul>
